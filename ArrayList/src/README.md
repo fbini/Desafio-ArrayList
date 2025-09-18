@@ -12,10 +12,10 @@ Crie um programa em Java que permita ao usuário **adicionar**, **listar** e **r
 - Use `ArrayList<String>` para armazenar os nomes.
 - O programa deve oferecer as seguintes opções:
 
-1 - Adicionar nome
-2 - Listar nomes
-3 - Remover nome
-0 - Sair
+- Adicionar nome
+- Listar nomes
+- Remover nome
+- Sair
 
 - O usuário digita a opção no console e o programa executa a ação correspondente.
 
