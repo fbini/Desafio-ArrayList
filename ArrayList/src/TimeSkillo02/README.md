@@ -1,6 +1,6 @@
 ## Nomes:
 - Arthur
-- Gabriel
+- Gabriel T
 - Kaillanny
 - Marcos
 - Moisés
