@@ -17,9 +17,6 @@ Crie um programa em Java que permita ao usuário **adicionar**, **listar** e **r
 3 - Remover nome
 0 - Sair
 
-yaml
-Copiar código
-
 - O usuário digita a opção no console e o programa executa a ação correspondente.
 
 ---
