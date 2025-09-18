@@ -1,7 +1,8 @@
 package TimeSkillo03;
 
-public class Main03 {
-    public static void main(String[] args) {
+import java.util.ArrayList;
+import java.util.Scanner;
 
-    }
+public class Main03 {
+
 }
