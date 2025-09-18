@@ -1,23 +1,28 @@
-💻 Desafio: Lista de Nomes
-🎯 Objetivo
 
-Crie um programa em Java que permita ao usuário adicionar, listar e remover nomes de uma lista usando ArrayList.
+# 💻 Desafio: Lista de Nomes
 
-✅ Requisitos
+## 🎯 Objetivo
 
-Use ArrayList<String> para armazenar os nomes.
+Crie um programa em Java que permita ao usuário **adicionar**, **listar** e **remover nomes** de uma lista usando `ArrayList`.
 
-O programa deve oferecer as seguintes opções:
+---
+
+## ✅ Requisitos
+
+- Use `ArrayList<String>` para armazenar os nomes.
+- O programa deve oferecer as seguintes opções:
 
 1 - Adicionar nome
 2 - Listar nomes
 3 - Remover nome
 0 - Sair
 
+- O usuário digita a opção no console e o programa executa a ação correspondente.
 
-O usuário digita a opção no console e o programa executa a ação correspondente.
+---
 
-🧠 Exemplo de uso
+## 🧠 Exemplo de uso
+
 ==== Menu ====
 1 - Adicionar nome
 2 - Listar nomes
@@ -39,18 +44,13 @@ Nome removido com sucesso!
 Escolha uma opção: 2
 A lista está vazia.
 
-🧰 Dicas para Implementação
+yaml
+Copiar código
 
-Use Scanner para capturar entrada do usuário.
+---
 
-Valide se o índice informado é válido antes de remover um item.
+## 🧰 Dicas para Implementação
 
-Use ArrayList para guardar os nomes:
-
-ArrayList<String> nomes = new ArrayList<>();
-
-🚀 Extra (opcional)
-
-Evite duplicatas (não permita adicionar o mesmo nome duas vezes).
-
-Mostre uma mensagem se tentar remover de uma lista vazia.
+- Use a classe `Scanner` para capturar entrada do usuário.
+- Valide se o índice informado é válido antes de remover um item.
+- Use `ArrayList` para guardar os nomes:
