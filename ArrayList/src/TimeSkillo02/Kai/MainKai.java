@@ -36,7 +36,7 @@ public class MainKai {
             switch(userOption) {
                 case 1:
                     System.out.println("You chose to add a name");
-                    System.out.println("Which name do you  want to add to the list?");
+                    System.out.println("Which name do you  want to add to the list? ");
                     String userAdd = reading.nextLine();
                     listOfNames.add(userAdd);
                     System.out.println("'" + userAdd + "' has been added to the list. ✅");
@@ -68,7 +68,7 @@ public class MainKai {
                     reading.nextLine(); //Isso é para concertar o erro de leitura no próximo "reading.nextLine()"
                     String userName = reading.nextLine();
                     listOfNames.set(userEdit, userName);
-                    System.out.println("'" + userName + "' has been edited from the list. ✅");
+                    System.out.println("'" + userName + "' has been edited in the list. ✅");
                     break;
                 case 0:
                     System.out.println("Okay! Quiting now! ✨");
