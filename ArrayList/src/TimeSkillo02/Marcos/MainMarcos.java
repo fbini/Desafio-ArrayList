@@ -8,8 +8,8 @@ public class MainMarcos {
 
         List<String> peopleList = new ArrayList();
 
-        int choice = -1;
-        while (choice != 0) {
+        int choice;
+        do {
 
             System.out.println("""
                     Menu De Escolhas:
@@ -29,6 +29,7 @@ public class MainMarcos {
 
                 }
                 case 2 -> {
+                    System.out.println("\n Lista:");
                     if (peopleList.size() == 0) {
                         System.out.println("Lista Vazia.\n");
                     } else {
@@ -39,14 +40,24 @@ public class MainMarcos {
                 }
 
                 case 3 -> {
-
+                    if (peopleList.size() == 0) {
+                        System.out.println("Lista Vazia! \n");
+                    } else {
+                        System.out.println("Digite o nome que quer retirar:");
+                        System.out.println("\nLista:");
+                        for (String person : peopleList) {
+                            System.out.println(person);
+                        }
+                        String a = scanner.nextLine();
+                        String removeName = scanner.nextLine();
+                        peopleList.remove(removeName);
+                    }
                 }
-
                 case 0 -> {
                     System.out.println("Tchau!!");
                 }
                 default -> System.out.println("Opção Inválida!\n");
             }
-        }
+        } while (choice != 0);
     }
 }
