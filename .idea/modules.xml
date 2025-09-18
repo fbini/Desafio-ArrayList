@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ArrayList/ArrayList.iml" filepath="$PROJECT_DIR$/ArrayList/ArrayList.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/DesafioArrayList.iml" filepath="$PROJECT_DIR$/.idea/DesafioArrayList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Nova pasta.iml" filepath="$PROJECT_DIR$/.idea/Nova pasta.iml" />
     </modules>
   </component>
 </project>
