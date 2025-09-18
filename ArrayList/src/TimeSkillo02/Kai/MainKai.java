@@ -26,6 +26,7 @@ public class MainKai {
                          2 - Show the name list;
                          3 - Remove name;
                          4 - Edit name;
+                         5 - Search something;
                          0 - Quit.
         
                 =====================================
@@ -69,6 +70,17 @@ public class MainKai {
                     String userName = reading.nextLine();
                     listOfNames.set(userEdit, userName);
                     System.out.println("'" + userName + "' has been edited in the list. ✅");
+                    break;
+                case 5:
+                    System.out.println("You chose to search.");
+                    System.out.println("Searching...");
+                    String enterUser = reading.nextLine();
+                    if (listOfNames.contains(enterUser)) {
+                        System.out.println("The list contains " + enterUser);
+                    } else {
+                        System.out.println("We cannot reach your search. Try again.");
+                        break;
+                    }
                     break;
                 case 0:
                     System.out.println("Okay! Quiting now! ✨");
