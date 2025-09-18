@@ -44,9 +44,6 @@ Nome removido com sucesso!
 Escolha uma opção: 2
 A lista está vazia.
 
-yaml
-Copiar código
-
 ---
 
 ## 🧰 Dicas para Implementação
