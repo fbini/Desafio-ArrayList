@@ -10,66 +10,64 @@ public class MainJose {
         ArrayList<Names> nameList = new ArrayList<>();
         Scanner teclado = new Scanner(System.in);
 
-        System.out.println();
-
-
-        //Adicionando nomes
-        nameList.add(new Names("Ingrid B."));
-        nameList.add(new Names("Gabriel K."));
-        nameList.add(new Names("Julia S."));
-        nameList.add(new Names("José V."));
-
         int opcao;
 
         do {
-            System.out.println("\nMENU:");
+            System.out.println("\n===== MENU =====");
             System.out.println("1 - Mostrar nomes");
             System.out.println("2 - Adicionar nome");
-            System.out.println("3 - Remover");
+            System.out.println("3 - Remover nome");
             System.out.println("4 - Sair");
+            System.out.print("Escolha uma opção: ");
+
+            while (!teclado.hasNextInt()) {
+                System.out.print("Digite um número válido: ");
+                teclado.next(); // descarta entrada inválida
+            }
             opcao = teclado.nextInt();
-            teclado.nextLine();
+            teclado.nextLine(); // limpa o buffer
 
             switch (opcao) {
                 case 1 -> {
                     System.out.println("\n ==== Lista de nomes ===");
-                    for (Names names : nameList) {
-                        System.out.println("- " + names.getName());
+                    if (nameList.isEmpty()) {
+                        System.out.println("A lista está vazia!");
+                    } else {
+                        for (Names names : nameList) {
+                            System.out.println("- " + names.getName());
+                        }
                     }
                 }
                 case 2 -> {
-                    System.out.println("Digite o nome para adicionar: ");
+                    System.out.print("Digite o nome para adicionar: ");
                     String newName = teclado.nextLine();
                     nameList.add(new Names(newName));
-                    System.out.println("Nome adicionado!😁");
+                    System.out.println("✅ Nome \"" + newName + "\" adicionado!");
                 }
                 case 3 -> {
-                    System.out.println("Digite para remover: ");
+                    System.out.print("Digite o nome para remover: ");
                     String removeName = teclado.nextLine();
-                    boolean remove = false;
+                    boolean removed = false;
 
                     for (int i = 0; i < nameList.size(); i++) {
                         if (nameList.get(i).getName().equalsIgnoreCase(removeName)) {
                             nameList.remove(i);
-                            remove = true;
-                            System.out.println("Nome removido... 😔");
+                            removed = true;
+                            System.out.println("❌ Nome \"" + removeName + "\" removido.");
+                            break;
                         }
                     }
 
-                    if (!remove) {
-                        System.out.println("Nome não encontrado");
+                    if (!removed) {
+                        System.out.println("⚠ Nome não encontrado na lista.");
                     }
-
                 }
-                case 4 -> {
-                    System.out.println("Saindo, até mais...");
-                }
-                default -> {
-                    System.out.println("Opção inválida, tente novamente.");
-                }
+                case 4 -> System.out.println("Saindo... Até mais! 👋");
+                default -> System.out.println("Opção inválida, tente novamente.");
             }
-
         } while (opcao != 4);
+
+        teclado.close();
 
 
     }
