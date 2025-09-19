@@ -23,9 +23,9 @@ public class MainKai {
                 ==============  MENU  ===============
         
                          1 - Add name;
-                         2 - Show the name list;
+                         2 - Edit name;
                          3 - Remove name;
-                         4 - Edit name;
+                         4 - Show the name list;
                          5 - Search something;
                          0 - Quit.
         
@@ -43,11 +43,7 @@ public class MainKai {
                     System.out.println("'" + userAdd + "' has been added to the list. ✅");
                     break;
                 case 2:
-                    System.out.println("You chose to show the list");
-                    for (int i = 0; i < listOfNames.size(); i++) {
-                        System.out.println("Index " + i + ": " + listOfNames.get(i) + ";");
-                    }
-                    break;
+
                 case 3:
                     System.out.println("You chose to remove a name");
                     for (int i = 0; i < listOfNames.size(); i++) {
@@ -59,17 +55,9 @@ public class MainKai {
                     System.out.println("'" + userRemove + "' has been removed from the list. ✅");
                     break;
                 case 4:
-                    System.out.println("You chose to edit a name");
+                    System.out.println("You chose to show the list");
                     for (int i = 0; i < listOfNames.size(); i++) {
-                        System.out.println("Index " + i + ": " + listOfNames.get(i) + ";");
-                    }
-                    System.out.println("Which name do you want to edit by the index? ");
-                    int userEdit = reading.nextInt();
-                    System.out.println("Which name do you want to add? ");
-                    reading.nextLine(); //Isso é para concertar o erro de leitura no próximo "reading.nextLine()"
-                    String userName = reading.nextLine();
-                    listOfNames.set(userEdit, userName);
-                    System.out.println("'" + userName + "' has been edited in the list. ✅");
+                    System.out.println("Index " + i + ": " + listOfNames.get(i) + ";");}
                     break;
                 case 5:
                     System.out.println("You chose to search.");
