@@ -1,3 +1,5 @@
+package src.TimeSkillo02.Gabriel;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 public class MainGabriel {
@@ -6,7 +8,6 @@ public class MainGabriel {
         Scanner scanner = new Scanner(System.in);
 
         ArrayList<String> listOfNames = new ArrayList<>();
-
 
         int choice = -1;
         while (choice != 0) {
