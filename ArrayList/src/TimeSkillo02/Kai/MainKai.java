@@ -8,13 +8,6 @@ public class MainKai {
         Scanner reading = new Scanner(System.in);
         ArrayList<String> listOfNames = new ArrayList<>();
 
-        listOfNames.add(0, "Enzo");
-        listOfNames.add(1, "Hannah");
-        listOfNames.add(2, "Sheila");
-        listOfNames.add(3, "Leonard");
-        listOfNames.add(4, "Yuri");
-        listOfNames.add(5, "Arthur");
-
         int userOption;
 
         //Loop menu
@@ -43,7 +36,18 @@ public class MainKai {
                     System.out.println("'" + userAdd + "' has been added to the list. ✅");
                     break;
                 case 2:
-
+                    System.out.println("You chose to show the list");
+                    for (int i = 0; i < listOfNames.size(); i++) {
+                        System.out.println("Index " + i + ": " + listOfNames.get(i) + ";");
+                    }
+                    System.out.println("Which name do you want to edit by the index? ");
+                    int userEdit = reading.nextInt();
+                    System.out.println("Which name do you want to add? ");
+                    reading.nextLine(); //Isso é para concertar o erro de leitura no próximo "reading.nextLine()"
+                    String userName = reading.nextLine();
+                    listOfNames.set(userEdit, userName);
+                    System.out.println("'" + userName + "' has been edited in the list. ✅");
+                    break;
                 case 3:
                     System.out.println("You chose to remove a name");
                     for (int i = 0; i < listOfNames.size(); i++) {
