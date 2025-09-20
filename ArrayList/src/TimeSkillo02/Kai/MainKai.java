@@ -39,18 +39,21 @@ public class MainKai {
                     scan.nextLine();
                     break;
                 case 2:
-                    System.out.println("You chose to show the list");
+                    System.out.println("You chose to edit the list");
                     for (int i = 0; i < listOfNames.size(); i++) {
                         System.out.println("Index " + i + ": " + listOfNames.get(i) + ";");
                     }
-                    System.out.println("Which name do you want to edit by the index? ");
-                    int userEdit = scan.nextInt();
-                    System.out.println("Which name do you want to add? ");
-                    scan.nextLine(); //Isso é para concertar o erro de leitura no próximo "scan.nextLine()"
-                    String userName = scan.nextLine();
-                    listOfNames.set(userEdit, userName);
-                    System.out.println("'" + userName + "' has been edited in the list. ✅");
-
+                    if (listOfNames.size() == 0) {
+                        System.out.println("The List is Empty. 0️⃣\n");
+                    } else {
+                        System.out.println("Which name do you want to edit by the index? ");
+                        int userEdit = scan.nextInt();
+                        System.out.println("Which name do you want to add? ");
+                        scan.nextLine(); //Isso é para concertar o erro de leitura no próximo "scan.nextLine()"
+                        String userName = scan.nextLine();
+                        listOfNames.set(userEdit, userName);
+                        System.out.println("'" + userName + "' has been edited in the list. ✅");
+                    }
                     System.out.println("Wanna return to menu? Press Enter ");
                     scan.nextLine();
                     break;
@@ -59,18 +62,25 @@ public class MainKai {
                     for (int i = 0; i < listOfNames.size(); i++) {
                         System.out.println("Index " + i + ": " + listOfNames.get(i) + ";");
                     }
-                    System.out.println("Which name do you want to remove by the index? ");
-                    int userRemove = scan.nextInt();
-                    listOfNames.remove(userRemove);
-                    System.out.println("'" + userRemove + "' has been removed from the list. ✅");
-
+                    if (listOfNames.size() == 0) {
+                        System.out.println("The List is Empty. 0️⃣\n");
+                    } else {
+                        System.out.println("Which name do you want to remove by the index? ");
+                        int userRemove = scan.nextInt();
+                        listOfNames.remove(userRemove);
+                        System.out.println("'" + userRemove + "' has been removed from the list. ✅");
+                    }
                     System.out.println("Wanna return to menu? Press Enter ");
                     scan.nextLine();
                     break;
                 case 4:
                     System.out.println("You chose to show the list");
-                    for (int i = 0; i < listOfNames.size(); i++) {
-                    System.out.println("Index " + i + ": " + listOfNames.get(i) + ";");
+                    if (listOfNames.size() == 0) {
+                        System.out.println("The List is Empty. 0️⃣\n");
+                    } else {
+                        for (int i = 0; i < listOfNames.size(); i++) {
+                            System.out.println("Index " + i + ": " + listOfNames.get(i) + ";");
+                        }
                     }
 
                     System.out.println("Wanna return to menu? Press Enter ");
@@ -78,13 +88,17 @@ public class MainKai {
                     break;
                 case 5:
                     System.out.println("You chose to search.");
-                    System.out.println("Searching...");
-                    String enterUser = scan.nextLine();
-                    if (listOfNames.contains(enterUser)) {
-                        System.out.println("The list contains " + enterUser);
+                    if (listOfNames.size() == 0) {
+                        System.out.println("The List is Empty. 0️⃣\n");
                     } else {
-                        System.out.println("We cannot reach your search. ✨ Try again.");
-                        break;
+                        System.out.println("Searching...");
+                        String enterUser = scan.nextLine();
+                        if (listOfNames.contains(enterUser)) {
+                            System.out.println("The list contains " + enterUser);
+                        } else {
+                            System.out.println("We cannot reach your search. ✨ Try again.");
+                            break;
+                        }
                     }
 
                     System.out.println("Wanna return to menu? Press Enter ");

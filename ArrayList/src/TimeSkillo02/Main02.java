@@ -78,10 +78,10 @@ public class Main02 {
                     break;
                 case 5:
                     System.out.println("You chose to search.");
-                    System.out.println("Searching...");
                     if (listOfNames.size() == 0) {
                         System.out.println("The List is Empty! \n");
                     } else {
+                        System.out.println("Searching...");
                         String enterUser = reading.nextLine();
                         if (listOfNames.contains(enterUser)) {
                             System.out.println("The list contains " + enterUser);
