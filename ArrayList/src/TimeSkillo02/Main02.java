@@ -40,7 +40,7 @@ public class Main02 {
                     for (int i = 0; i < listOfNames.size(); i++) {
                         System.out.println("Index " + i + ": " + listOfNames.get(i) + ";");
                     }
-                    if (listOfNames.size() == 0) {
+                    if (listOfNames.isEmpty()) {
                         System.out.println("The List is Empty. 0️⃣\n");
                     } else {
                         System.out.println("Which name do you want to edit by the index? ");
@@ -57,7 +57,7 @@ public class Main02 {
                     for (int i = 0; i < listOfNames.size(); i++) {
                         System.out.println("Index " + i + ": " + listOfNames.get(i) + ";");
                     }
-                    if (listOfNames.size() == 0) {
+                    if (listOfNames.isEmpty()) {
                         System.out.println("The List is Empty. 0️⃣\n");
                     } else {
                         System.out.println("Which name do you want to remove by the index? ");
@@ -68,7 +68,7 @@ public class Main02 {
                     break;
                 case 4:
                     System.out.println("You chose to show the list");
-                    if (listOfNames.size() == 0) {
+                    if (listOfNames.isEmpty()) {
                         System.out.println("The List is Empty. 0️⃣\n");
                     } else {
                         for (int i = 0; i < listOfNames.size(); i++) {
@@ -78,7 +78,7 @@ public class Main02 {
                     break;
                 case 5:
                     System.out.println("You chose to search.");
-                    if (listOfNames.size() == 0) {
+                    if (listOfNames.isEmpty()) {
                         System.out.println("The List is Empty! \n");
                     } else {
                         System.out.println("Searching...");
