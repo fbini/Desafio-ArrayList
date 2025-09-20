@@ -9,7 +9,7 @@ public class MainKai {
         Scanner scan = new Scanner(System.in);
         ArrayList<String> listOfNames = new ArrayList<>();
 
-        int userOption = -1;
+        int userOption;
 
         //Loop menu
         do {

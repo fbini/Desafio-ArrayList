@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main02 {
     public static void main(String[] args) {
-        Scanner reading = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
         ArrayList<String> listOfNames = new ArrayList<>();
 
         int userOption;
@@ -24,14 +24,14 @@ public class Main02 {
         
                 =====================================
         """);
-            userOption = reading.nextInt();
-            reading.nextLine(); //Isso é para concertar o erro de leitura no próximo "reading.nextLine()"
+            userOption = scan.nextInt();
+            scan.nextLine(); //Isso é para concertar o erro de leitura no próximo "scan.nextLine()"
 
             switch(userOption) {
                 case 1:
                     System.out.println("You chose to add a name");
                     System.out.println("Which name do you  want to add to the list? ");
-                    String userAdd = reading.nextLine();
+                    String userAdd = scan.nextLine();
                     listOfNames.add(userAdd);
                     System.out.println("'" + userAdd + "' has been added to the list. ✅");
                     break;
@@ -40,14 +40,15 @@ public class Main02 {
                     for (int i = 0; i < listOfNames.size(); i++) {
                         System.out.println("Index " + i + ": " + listOfNames.get(i) + ";");
                     }
+
                     if (listOfNames.isEmpty()) {
                         System.out.println("The List is Empty. 0️⃣\n");
                     } else {
                         System.out.println("Which name do you want to edit by the index? ");
-                        int userEdit = reading.nextInt();
+                        int userEdit = scan.nextInt();
                         System.out.println("Which name do you want to add? ");
-                        reading.nextLine(); //Isso é para concertar o erro de leitura no próximo "reading.nextLine()"
-                        String userName = reading.nextLine();
+                        scan.nextLine(); //Isso é para concertar o erro de leitura no próximo "scan.nextLine()"
+                        String userName = scan.nextLine();
                         listOfNames.set(userEdit, userName);
                         System.out.println("'" + userName + "' the list has been edited. ✅");
                     }
@@ -57,11 +58,12 @@ public class Main02 {
                     for (int i = 0; i < listOfNames.size(); i++) {
                         System.out.println("Index " + i + ": " + listOfNames.get(i) + ";");
                     }
+
                     if (listOfNames.isEmpty()) {
                         System.out.println("The List is Empty. 0️⃣\n");
                     } else {
                         System.out.println("Which name do you want to remove by the index? ");
-                        int userRemove = reading.nextInt();
+                        int userRemove = scan.nextInt();
                         listOfNames.remove(userRemove);
                         System.out.println("'" + userRemove + "' has been removed from the list. ✅");
                     }
@@ -82,7 +84,7 @@ public class Main02 {
                         System.out.println("The List is Empty! \n");
                     } else {
                         System.out.println("Searching...");
-                        String enterUser = reading.nextLine();
+                        String enterUser = scan.nextLine();
                         if (listOfNames.contains(enterUser)) {
                             System.out.println("The list contains " + enterUser);
                         } else {
