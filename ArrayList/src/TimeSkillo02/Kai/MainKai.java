@@ -1,5 +1,6 @@
-package src.TimeSkillo02.Kai;
+package TimeSkillo02.Kai;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -20,6 +21,7 @@ public class MainKai {
                          3 - Remove name;
                          4 - Show the name list;
                          5 - Search something;
+                         6 - Save changes;
                          0 - Quit.
         
                 =====================================
@@ -43,7 +45,7 @@ public class MainKai {
                     for (int i = 0; i < listOfNames.size(); i++) {
                         System.out.println("Index " + i + ": " + listOfNames.get(i) + ";");
                     }
-                    if (listOfNames.size() == 0) {
+                    if (listOfNames.isEmpty()) {
                         System.out.println("The List is Empty. 0️⃣\n");
                     } else {
                         System.out.println("Which name do you want to edit by the index? ");
@@ -62,7 +64,7 @@ public class MainKai {
                     for (int i = 0; i < listOfNames.size(); i++) {
                         System.out.println("Index " + i + ": " + listOfNames.get(i) + ";");
                     }
-                    if (listOfNames.size() == 0) {
+                    if (listOfNames.isEmpty()) {
                         System.out.println("The List is Empty. 0️⃣\n");
                     } else {
                         System.out.println("Which name do you want to remove by the index? ");
@@ -75,7 +77,10 @@ public class MainKai {
                     break;
                 case 4:
                     System.out.println("You chose to show the list");
-                    if (listOfNames.size() == 0) {
+                    carregarArquivo(listOfNames); //Metodo que carrega o que está no arquivo 'dados.txt'
+
+
+                    if (listOfNames.isEmpty()) {
                         System.out.println("The List is Empty. 0️⃣\n");
                     } else {
                         for (int i = 0; i < listOfNames.size(); i++) {
@@ -88,7 +93,7 @@ public class MainKai {
                     break;
                 case 5:
                     System.out.println("You chose to search.");
-                    if (listOfNames.size() == 0) {
+                    if (listOfNames.isEmpty()) {
                         System.out.println("The List is Empty. 0️⃣\n");
                     } else {
                         System.out.println("Searching...");
@@ -104,6 +109,10 @@ public class MainKai {
                     System.out.println("Wanna return to menu? Press Enter ");
                     scan.nextLine();
                     break;
+                case 6:
+                    System.out.println("You chose to save your changes!");
+                    salvarArquivo(listOfNames);
+                    break;
                 case 0:
                     System.out.println("Okay! Quiting now! ✨");
                     break;
@@ -115,5 +124,38 @@ public class MainKai {
                     break;
             }
         } while (userOption != 0);
+    }
+
+    public static void salvarArquivo(ArrayList<String> listOfNames) {
+        String fileWay = "data/data.txt";
+
+        try (PrintWriter write =  new PrintWriter(new FileWriter(fileWay))) {
+            for (String name : listOfNames) {
+                write.println(name);
+            }
+            System.out.println("The name list has been saved in: 'data.txt'.");
+        } catch (IOException e) {
+            System.out.println("An error occured while trying saving file: " + e.getMessage());
+        }
+    }
+
+    public static void carregarArquivo(ArrayList<String> listOfNames) {
+        try {
+            String fileWay = "data/data.txt";
+
+            File dataFile = new File(fileWay);
+            Scanner fileScan = new Scanner(dataFile);
+
+            listOfNames.clear();
+
+            while (fileScan.hasNextLine()) {
+                String name = fileScan.nextLine();
+                listOfNames.add(name);
+            }
+
+            fileScan.close(); //Fechar o scanner
+        } catch (FileNotFoundException e) {
+            System.out.println("We couldn't reach the data base.");
+        }
     }
 }
