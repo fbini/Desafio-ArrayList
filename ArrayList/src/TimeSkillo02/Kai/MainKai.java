@@ -77,7 +77,7 @@ public class MainKai {
                     break;
                 case 4:
                     System.out.println("You chose to show the list");
-                    carregarArquivo(listOfNames); //Metodo que carrega o que está no arquivo 'dados.txt'
+                    loadFile(listOfNames); //Metodo que carrega o que está no arquivo 'dados.txt'
 
 
                     if (listOfNames.isEmpty()) {
@@ -111,7 +111,7 @@ public class MainKai {
                     break;
                 case 6:
                     System.out.println("You chose to save your changes!");
-                    salvarArquivo(listOfNames);
+                    saveFile(listOfNames);
                     break;
                 case 0:
                     System.out.println("Okay! Quiting now! ✨");
@@ -126,7 +126,7 @@ public class MainKai {
         } while (userOption != 0);
     }
 
-    public static void salvarArquivo(ArrayList<String> listOfNames) {
+    public static void saveFile(ArrayList<String> listOfNames) {
         String fileWay = "data/data.txt";
 
         try (PrintWriter write =  new PrintWriter(new FileWriter(fileWay))) {
@@ -139,7 +139,7 @@ public class MainKai {
         }
     }
 
-    public static void carregarArquivo(ArrayList<String> listOfNames) {
+    public static void loadFile(ArrayList<String> listOfNames) {
         try {
             String fileWay = "data/data.txt";
 
