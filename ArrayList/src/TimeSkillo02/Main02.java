@@ -1,5 +1,3 @@
-package TimeSkillo02;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -32,8 +30,14 @@ public class Main02 {
                     System.out.println("You chose to add a name");
                     System.out.println("Which name do you  want to add to the list? ");
                     String userAdd = scan.nextLine();
+                    while (listOfNames.contains(userAdd)) {
+                        System.out.println("The name you wrote already exists in the list, could you write another one or add a surname?");
+                        userAdd = scan.nextLine();
+                    }
                     listOfNames.add(userAdd);
                     System.out.println("'" + userAdd + "' has been added to the list. ✅");
+                    System.out.println("Wanna return to menu? Press Enter ");
+                    scan.nextLine();
                     break;
                 case 2:
                     System.out.println("You chose to edit the list");
@@ -52,6 +56,8 @@ public class Main02 {
                         listOfNames.set(userEdit, userName);
                         System.out.println("'" + userName + "' the list has been edited. ✅");
                     }
+                    System.out.println("Wanna return to menu? Press Enter ");
+                    scan.nextLine();
                     break;
                 case 3:
                     System.out.println("You chose to remove a name");
@@ -67,6 +73,8 @@ public class Main02 {
                         listOfNames.remove(userRemove);
                         System.out.println("'" + userRemove + "' has been removed from the list. ✅");
                     }
+                    System.out.println("Wanna return to menu? Press Enter ");
+                    scan.nextLine();
                     break;
                 case 4:
                     System.out.println("You chose to show the list");
@@ -77,6 +85,8 @@ public class Main02 {
                             System.out.println("Index " + i + ": " + listOfNames.get(i) + ";");
                         }
                     }
+                    System.out.println("Wanna return to menu? Press Enter ");
+                    scan.nextLine();
                     break;
                 case 5:
                     System.out.println("You chose to search.");
@@ -92,12 +102,16 @@ public class Main02 {
                             break;
                         }
                     }
+                    System.out.println("Wanna return to menu? Press Enter ");
+                    scan.nextLine();
                     break;
                 case 0:
                     System.out.println("Okay! Quiting now! ✨");
                     break;
                 default:
                     System.out.println("Invalid entry. Pls try again! \uD83D\uDC40");
+                    System.out.println("Wanna return to menu? Press Enter ");
+                    scan.nextLine();
                     break;
             }
         } while (userOption != 0);
