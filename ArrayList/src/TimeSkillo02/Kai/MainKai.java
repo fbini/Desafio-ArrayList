@@ -11,6 +11,8 @@ public class MainKai {
 
         int userOption;
 
+        loadFile(listOfNames); //Metodo que carrega o que está no arquivo 'dados.txt'
+
         //Loop menu
         do {
             System.out.println("""
@@ -34,6 +36,10 @@ public class MainKai {
                     System.out.println("You chose to add a name");
                     System.out.println("Which name do you  want to add to the list? ");
                     String userAdd = scan.nextLine();
+                    while (listOfNames.contains(userAdd)) {
+                        System.out.println("The name you wrote already exists in the list, could you write another one or add a surname?");
+                        userAdd = scan.nextLine();
+                    }
                     listOfNames.add(userAdd);
                     System.out.println("'" + userAdd + "' has been added to the list. ✅");
 
@@ -77,8 +83,6 @@ public class MainKai {
                     break;
                 case 4:
                     System.out.println("You chose to show the list");
-                    loadFile(listOfNames); //Metodo que carrega o que está no arquivo 'dados.txt'
-
 
                     if (listOfNames.isEmpty()) {
                         System.out.println("The List is Empty. 0️⃣\n");
@@ -127,7 +131,7 @@ public class MainKai {
     }
 
     public static void saveFile(ArrayList<String> listOfNames) {
-        String fileWay = "data/data.txt";
+        String fileWay = "ArrayList/data/data.txt";
 
         try (PrintWriter write =  new PrintWriter(new FileWriter(fileWay))) {
             for (String name : listOfNames) {
@@ -141,7 +145,7 @@ public class MainKai {
 
     public static void loadFile(ArrayList<String> listOfNames) {
         try {
-            String fileWay = "data/data.txt";
+            String fileWay = "ArrayList/data/data.txt";
 
             File dataFile = new File(fileWay);
             Scanner fileScan = new Scanner(dataFile);
