@@ -1,3 +1,5 @@
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -7,6 +9,8 @@ public class Main02 {
         ArrayList<String> listOfNames = new ArrayList<>();
 
         int userOption;
+
+        loadFile(listOfNames); //Metodo que carrega o que está no arquivo 'dados.txt'
 
         //Loop menu
         do {
@@ -18,6 +22,7 @@ public class Main02 {
                          3 - Remove name;
                          4 - Show the name list;
                          5 - Search something;
+                         6 - Save changes;
                          0 - Quit.
         
                 =====================================
@@ -36,6 +41,7 @@ public class Main02 {
                     }
                     listOfNames.add(userAdd);
                     System.out.println("'" + userAdd + "' has been added to the list. ✅");
+
                     System.out.println("Wanna return to menu? Press Enter ");
                     scan.nextLine();
                     break;
@@ -44,7 +50,6 @@ public class Main02 {
                     for (int i = 0; i < listOfNames.size(); i++) {
                         System.out.println("Index " + i + ": " + listOfNames.get(i) + ";");
                     }
-
                     if (listOfNames.isEmpty()) {
                         System.out.println("The List is Empty. 0️⃣\n");
                     } else {
@@ -54,7 +59,7 @@ public class Main02 {
                         scan.nextLine(); //Isso é para concertar o erro de leitura no próximo "scan.nextLine()"
                         String userName = scan.nextLine();
                         listOfNames.set(userEdit, userName);
-                        System.out.println("'" + userName + "' the list has been edited. ✅");
+                        System.out.println("'" + userName + "' has been edited in the list. ✅");
                     }
                     System.out.println("Wanna return to menu? Press Enter ");
                     scan.nextLine();
@@ -64,7 +69,6 @@ public class Main02 {
                     for (int i = 0; i < listOfNames.size(); i++) {
                         System.out.println("Index " + i + ": " + listOfNames.get(i) + ";");
                     }
-
                     if (listOfNames.isEmpty()) {
                         System.out.println("The List is Empty. 0️⃣\n");
                     } else {
@@ -78,6 +82,7 @@ public class Main02 {
                     break;
                 case 4:
                     System.out.println("You chose to show the list");
+
                     if (listOfNames.isEmpty()) {
                         System.out.println("The List is Empty. 0️⃣\n");
                     } else {
@@ -85,35 +90,75 @@ public class Main02 {
                             System.out.println("Index " + i + ": " + listOfNames.get(i) + ";");
                         }
                     }
+
                     System.out.println("Wanna return to menu? Press Enter ");
                     scan.nextLine();
                     break;
                 case 5:
                     System.out.println("You chose to search.");
                     if (listOfNames.isEmpty()) {
-                        System.out.println("The List is Empty! \n");
+                        System.out.println("The List is Empty. 0️⃣\n");
                     } else {
                         System.out.println("Searching...");
                         String enterUser = scan.nextLine();
                         if (listOfNames.contains(enterUser)) {
                             System.out.println("The list contains " + enterUser);
                         } else {
-                            System.out.println("We couldn't reach your search. ❌ Try again. \uD83D\uDD01");
+                            System.out.println("We cannot reach your search. ✨ Try again.");
                             break;
                         }
                     }
+
                     System.out.println("Wanna return to menu? Press Enter ");
                     scan.nextLine();
+                    break;
+                case 6:
+                    System.out.println("You chose to save your changes!");
+                    saveFile(listOfNames);
                     break;
                 case 0:
                     System.out.println("Okay! Quiting now! ✨");
                     break;
                 default:
-                    System.out.println("Invalid entry. Pls try again! \uD83D\uDC40");
+                    System.out.println("Invalid entry. Please, try it again! \uD83D\uDC40");
+
                     System.out.println("Wanna return to menu? Press Enter ");
                     scan.nextLine();
                     break;
             }
         } while (userOption != 0);
+    }
+
+    public static void saveFile(ArrayList<String> listOfNames) {
+        String fileWay = "ArrayList/data/data.txt";
+
+        try (PrintWriter write =  new PrintWriter(new FileWriter(fileWay))) {
+            for (String name : listOfNames) {
+                write.println(name);
+            }
+            System.out.println("The name list has been saved in: 'data.txt'.");
+        } catch (IOException e) {
+            System.out.println("An error occured while trying saving file: " + e.getMessage());
+        }
+    }
+
+    public static void loadFile(ArrayList<String> listOfNames) {
+        try {
+            String fileWay = "ArrayList/data/data.txt";
+
+            File dataFile = new File(fileWay);
+            Scanner fileScan = new Scanner(dataFile);
+
+            listOfNames.clear();
+
+            while (fileScan.hasNextLine()) {
+                String name = fileScan.nextLine();
+                listOfNames.add(name);
+            }
+
+            fileScan.close(); //Fechar o scanner
+        } catch (FileNotFoundException e) {
+            System.out.println("We couldn't reach the data base.");
+        }
     }
 }
